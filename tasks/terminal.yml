@@ -43,6 +43,14 @@
     src: files/ghostty/config
     dest: ~/.config/ghostty/config
 
+- name: Ensure Homebrew is initialized in .zshrc.
+  lineinfile:
+    path: ~/.zshrc
+    line: eval "$(/opt/homebrew/bin/brew shellenv)"
+    create: true
+    state: present
+    insertbefore: BOF
+
 - name: Ensure JAVA_HOME is set for Zulu 17 in .zshrc.
   lineinfile:
     path: ~/.zshrc
