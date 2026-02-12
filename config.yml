@@ -1,5 +1,5 @@
 ---
-configure_dotfiles: true
+configure_dotfiles: false
 configure_terminal: true
 configure_osx: true
 
@@ -46,15 +46,19 @@ homebrew_installed_packages:
   - yarn
   - watchman
   - mobile-dev-inc/tap/maestro
+  - cocoapods
   - mole
   - rust
   - speedtest
   - starship
   - terraform
   - oven-sh/bun/bun
+  - ruby
+  - pnpm
 
 homebrew_taps:
   - mobile-dev-inc/tap
+  - teamookla/speedtest
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
@@ -97,8 +101,8 @@ composer_packages: []
 # - name: drush
 #   state: present # present/absent, default: present
 #   version: "^8.1" # default: N/A
-gem_packages:
-  - name: cocoapods
+gem_packages: []
+# - name: cocoapods
 # - name: bundler
 #   state: present # present/absent/latest, default: present
 #   version: "~> 1.15.1" # default: N/A

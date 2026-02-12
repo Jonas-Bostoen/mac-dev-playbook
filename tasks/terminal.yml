@@ -1,4 +1,18 @@
 ---
+# SSH setup.
+- name: Ensure .ssh directory exists.
+  file:
+    path: ~/.ssh
+    state: directory
+    mode: "0700"
+
+- name: Ensure .ssh/config exists.
+  copy:
+    content: ""
+    dest: ~/.ssh/config
+    mode: "0644"
+    force: false
+
 # Custom Terminal theme.
 - name: Get current Terminal profile.
   command: defaults read com.apple.terminal 'Default Window Settings'
@@ -7,17 +21,17 @@
   failed_when: false
   check_mode: false
 
-- name: Ensure custom Terminal profile is added.
-  copy:
-    src: files/terminal/JJG-Term.terminal
-    dest: /tmp/JJG-Term.terminal
-  changed_when: false
-  when: "'JJG-Term' not in terminal_theme.stdout"
+# - name: Ensure custom Terminal profile is added.
+#   copy:
+#     src: files/terminal/JJG-Term.terminal
+#     dest: /tmp/JJG-Term.terminal
+#   changed_when: false
+#   when: "'JJG-Term' not in terminal_theme.stdout"
 
-- name: Ensure custom Terminal profile is added.
-  command: open /tmp/JJG-Term.terminal
-  changed_when: false
-  when: "'JJG-Term' not in terminal_theme.stdout"
+# - name: Ensure custom Terminal profile is added.
+#   command: open /tmp/JJG-Term.terminal
+#   changed_when: false
+#   when: "'JJG-Term' not in terminal_theme.stdout"
 
 - name: Ensure JAVA_HOME is set for Zulu 17 in .zshrc.
   lineinfile:
@@ -26,9 +40,41 @@
     create: true
     state: present
 
+- name: Ensure Starship config is present.
+  copy:
+    src: files/starship/starship.toml
+    dest: ~/.config/starship.toml
+
 - name: Ensure Starship is initialized in .zshrc.
   lineinfile:
     path: ~/.zshrc
     line: eval "$(starship init zsh)"
+    create: true
+    state: present
+
+- name: Ensure nvm is initialized in .zshrc.
+  lineinfile:
+    path: ~/.zshrc
+    line: |
+      export NVM_DIR="$HOME/.nvm"
+        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+    create: true
+    state: present
+
+- name: Enable auto complete
+  lineinfile:
+    path: ~/.zshrc
+    line: autoload -Uz compinit && compinit
+    create: true
+    state: present
+
+- name: Android stuff
+  lineinfile:
+    path: ~/.zshrc
+    line: |
+      export ANDROID_HOME=$HOME/Library/Android/sdk
+      export PATH=$PATH:$ANDROID_HOME/emulator
+      export PATH=$PATH:$ANDROID_HOME/platform-tools
     create: true
     state: present
