@@ -33,6 +33,16 @@
 #   changed_when: false
 #   when: "'JJG-Term' not in terminal_theme.stdout"
 
+- name: Ensure Ghostty config directory exists.
+  file:
+    path: ~/.config/ghostty
+    state: directory
+
+- name: Ensure Ghostty config is present.
+  copy:
+    src: files/ghostty/config
+    dest: ~/.config/ghostty/config
+
 - name: Ensure JAVA_HOME is set for Zulu 17 in .zshrc.
   lineinfile:
     path: ~/.zshrc

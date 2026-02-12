@@ -83,6 +83,7 @@ homebrew_cask_apps:
   - zulu@17
   - rive
   - jetbrains-toolbox
+  - font-jetbrains-mono-nerd-font
 
 # See `geerlingguy.mac.mas` role documentation for usage instructions.
 mas_installed_apps:
