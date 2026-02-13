@@ -13,6 +13,12 @@
     mode: "0644"
     force: false
 
+- name: Git repos
+  file:
+    path: ~/git-repositories
+    state: directory
+    mode: "0700"
+
 # Custom Terminal theme.
 - name: Get current Terminal profile.
   command: defaults read com.apple.terminal 'Default Window Settings'
@@ -94,5 +100,12 @@
       export ANDROID_HOME=$HOME/Library/Android/sdk
       export PATH=$PATH:$ANDROID_HOME/emulator
       export PATH=$PATH:$ANDROID_HOME/platform-tools
+    create: true
+    state: present
+
+- name: Python path
+  lineinfile:
+    path: ~/.zshrc
+    line: export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
     create: true
     state: present
