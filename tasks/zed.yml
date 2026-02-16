@@ -1,0 +1,25 @@
+---
+- name: Ensure Zed config directory exists.
+  file:
+    path: ~/.config/zed
+    state: directory
+
+- name: Ensure Zed snippets directory exists.
+  file:
+    path: ~/.config/zed/snippets
+    state: directory
+
+- name: Ensure Zed settings are present.
+  copy:
+    src: files/zed/settings.json
+    dest: ~/.config/zed/settings.json
+
+- name: Ensure Zed keymap is present.
+  copy:
+    src: files/zed/keymap.json
+    dest: ~/.config/zed/keymap.json
+
+- name: Ensure Zed snippets are present.
+  copy:
+    src: files/zed/snippets/snippets.json
+    dest: ~/.config/zed/snippets/snippets.json

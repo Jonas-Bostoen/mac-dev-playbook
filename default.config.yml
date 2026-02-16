@@ -1,6 +1,7 @@
 ---
 configure_dotfiles: false
 configure_terminal: true
+configure_zed: true
 configure_osx: true
 
 # Set to 'true' to configure the Dock via dockutil.

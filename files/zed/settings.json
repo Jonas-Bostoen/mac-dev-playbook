@@ -1,0 +1,76 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "agent_servers": {
+    
+  },
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "rounded_selection": true,
+  "cursor_shape": "bar",
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash-lite",
+    },
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-3-flash",
+    },
+    "model_parameters": [],
+  },
+  "agent_buffer_font_size": 14.0,
+  "agent_ui_font_size": 14.0,
+  "project_panel": {
+    "dock": "right",
+    "entry_spacing": "standard",
+    "auto_fold_dirs": true,
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Frappé",
+  },
+  "ui_font_size": 16,
+  "ui_font_family": "JetBrains Mono",
+  "ui_font_weight": 300,
+  "buffer_font_size": 14,
+  "buffer_line_height": { "custom": 1.4 },
+  "buffer_font_weight": 300,
+  "buffer_font_family": "JetBrains Mono",
+  "base_keymap": "VSCode",
+  "snippet_sort_order": "top",
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte (Blur) [Heavy]",
+    "dark": "Catppuccin Frappé (Blur) [Heavy]",
+  },
+  "format_on_save": "on",
+  "tabs": { "file_icons": true },
+  "code_actions_on_format": {
+    "source.fixAll.eslint": true,
+  },
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "preferences": {
+            "importModuleSpecifier": "non-relative",
+          },
+        },
+      },
+    },
+    "snippet-completion-server": {
+      "settings": {
+        "feature_paths": true,
+      },
+    },
+  },
+}
