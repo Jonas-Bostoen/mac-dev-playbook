@@ -56,6 +56,7 @@ homebrew_installed_packages:
   - oven-sh/bun/bun
   - ruby
   - pnpm
+  - just
 
 homebrew_taps:
   - mobile-dev-inc/tap
@@ -87,10 +88,10 @@ homebrew_cask_apps:
   - font-jetbrains-mono-nerd-font
 
 # See `geerlingguy.mac.mas` role documentation for usage instructions.
-mas_installed_apps:
-  - { id: 1352778147, name: Bitwarden }
-  - { id: 310633997, name: WhatsApp }
-  - { id: 497799835, name: Xcode }
+# mas_installed_apps:
+#   - { id: 1352778147, name: Bitwarden }
+#   - { id: 310633997, name: WhatsApp }
+#   - { id: 497799835, name: Xcode }
 mas_email: ""
 mas_password: ""
 
