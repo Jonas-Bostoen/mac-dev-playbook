@@ -74,6 +74,7 @@ homebrew_cask_apps:
   - bruno
   - docker-desktop
   - figma
+  - microsoft-word
   - ghostty
   - microsoft-auto-update
   - microsoft-outlook

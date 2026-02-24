@@ -7,11 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "agent_servers": {
-    
-  },
+  "agent_servers": {},
   "edit_predictions": {
-    "mode": "subtle"
+    "mode": "subtle",
   },
   "rounded_selection": true,
   "cursor_shape": "bar",
@@ -58,6 +56,13 @@
     "source.fixAll.eslint": true,
   },
   "lsp": {
+    "eslint": {
+      "settings": {
+        "experimental": {
+          "useFlatConfig": true,
+        },
+      },
+    },
     "vtsls": {
       "settings": {
         "typescript": {
